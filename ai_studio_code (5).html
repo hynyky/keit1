@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#d98484">
+<title>Cân Bằng – Tăng cân khỏe cho phụ nữ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fdf0f0;--glow:#f8cfcf;--surface:#fff;--ink:#3b3622;--muted:#6f6540;--line:#f4cccc;--accent:#5c7339;--accent-hover:#4a5e2d;--accent-ink:#fff;--soft:#fbe3e3;--coral:#d95b5b;--rose:#c94c4c;--on-rose:#fff;--leaf-soft:#e8efdb;--warn:#59522c;--warn-soft:#f9dede;--shadow:rgba(217,91,91,.14);
+--fh:"Baloo 2","Nunito",system-ui,sans-serif;--fb:"Nunito",system-ui,-apple-system,"Segoe UI",sans-serif;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media (prefers-color-scheme:dark){:root{--bg:#261d1d;--glow:#4a2a2c;--surface:#33282a;--ink:#fbeaea;--muted:#d4b8b4;--line:#52403f;--accent:#a8c47a;--accent-hover:#bcd592;--accent-ink:#1d2610;--soft:#43302f;--coral:#f08a8a;--rose:#f2a0a0;--on-rose:#3a1414;--leaf-soft:#2f3a22;--warn:#f5c8c8;--warn-soft:#4a3535;--shadow:rgba(0,0,0,.35);color-scheme:dark}}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(900px 420px at 100% -8%,var(--glow) 0,transparent 62%),var(--bg);background-color:var(--bg);color:var(--ink);font:500 16px/1.6 var(--fb)}
+.wrap{max-width:860px;margin:0 auto;padding:18px 16px 56px}
+h1,h2,h3,.big{font-family:var(--fh)}
+h1{font-size:clamp(34px,7vw,52px);line-height:1.05;margin:0 0 8px;font-weight:800}
+h2{font-size:22px;line-height:1.2;margin:0 0 10px;font-weight:700}
+h3{font-size:18px;margin:0 0 2px;font-weight:700}
+p{margin:0 0 10px}
+.hero{position:relative;overflow:hidden;border-radius:24px;padding:26px 22px 24px;background:linear-gradient(135deg,#f2b6b6 0%,#d98484 100%);color:#3b2420;box-shadow:0 10px 28px var(--shadow)}
+.hero::before{content:"";position:absolute;right:-26px;top:-34px;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff 0,#fbdcdc 35%,#e8a0a0 100%);box-shadow:0 14px 30px rgba(120,40,40,.25)}
+.hero::after{content:"";position:absolute;right:92px;bottom:-14px;width:44px;height:44px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#8fa862 0,#5c7339 70%)}
+.hero>*{position:relative;z-index:1}
+.lead{max-width:54ch;margin:0;font-weight:600}
+.hero .lead{color:#3b2420}
+.tabs{display:flex;gap:8px;margin:18px 0 16px;overflow-x:auto;padding-bottom:4px}
+.tab{appearance:none;border:1.5px solid var(--line);background:var(--surface);color:var(--muted);font:700 15px var(--fb);padding:9px 18px;border-radius:99px;cursor:pointer;white-space:nowrap}
+.tab[aria-selected="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.tab:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--coral);outline-offset:2px}
+.card{background:var(--surface);border:1.5px solid var(--line);border-radius:20px;padding:20px;margin-bottom:16px;box-shadow:0 8px 22px var(--shadow)}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+label{display:block;font-size:14px;font-weight:700;color:var(--muted);margin-bottom:4px}
+input,select{width:100%;padding:11px 13px;border:1.5px solid var(--line);border-radius:12px;background:var(--bg);color:var(--ink);font:600 16px var(--fb)}
+input[type="checkbox"]{width:auto;margin:0}
+input:focus,select:focus{border-color:var(--accent)}
+.btn{appearance:none;border:0;border-radius:14px;background:var(--accent);color:var(--accent-ink);font:800 16px var(--fb);padding:12px 22px;cursor:pointer}
+.btn:hover{background:var(--accent-hover)}
+.btn.ghost{background:var(--soft);color:var(--accent)}
+.btn:disabled{opacity:.5;cursor:wait}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1.5px solid var(--line);background:var(--surface);color:var(--ink);border-radius:99px;padding:7px 14px;font:700 14px var(--fb);cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--rose);border-color:var(--rose);color:var(--on-rose)}
+.big{font-size:clamp(40px,9vw,60px);font-weight:800;line-height:1;color:var(--coral)}
+.big small{font-family:var(--fb);font-size:16px;font-weight:700;color:var(--muted)}
+.bar{height:12px;border-radius:99px;background:var(--soft);overflow:hidden;margin:6px 0 12px}
+.bar i{display:block;height:100%;background:var(--accent);border-radius:99px}
+.bar.p i{background:var(--coral)}
+.note{background:var(--warn-soft);color:var(--warn);border-radius:14px;padding:12px 16px;font-size:14px;font-weight:600}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{padding:9px 6px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--muted);font-weight:700}
+td.n,th.n{text-align:right;white-space:nowrap}
+.scroll{overflow-x:auto}
+.preview{max-width:100%;max-height:280px;border-radius:16px;display:block;margin:12px 0}
+.day{border-left:6px solid var(--line);padding-left:16px;margin-bottom:12px}
+.day.s{border-left-color:var(--coral)}
+.day .k{font-family:var(--fh);font-weight:700;color:var(--rose)}
+.tag{display:inline-block;background:var(--leaf-soft);color:var(--accent);border-radius:99px;padding:2px 10px;font-size:12px;font-weight:700;margin:0 6px 4px 0}
+.tag.done{background:var(--soft);color:var(--rose)}
+.muted{color:var(--muted);font-size:14px}
+.x{background:none;border:0;color:var(--rose);cursor:pointer;font-size:20px}
+.ln{stroke:var(--accent);fill:none;stroke-width:3}.pt{fill:var(--coral)}.gl{stroke:var(--coral);stroke-dasharray:5 4;stroke-width:1.5}.ax{stroke:var(--line)}svg text{fill:var(--muted);font-size:11px}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="hero"><h1>Cân Bằng</h1>
+<p class="lead">Chụp ảnh từng bữa ăn để AI tính calo, phát hiện chất đang thiếu và tự động cập nhật liên tục thực đơn món Việt Nam cho bữa tiếp theo và cả tuần theo đúng đồ có sẵn.</p></div>
+
+<div class="tabs" role="tablist">
+<button class="tab" role="tab" data-t="goal" aria-selected="true">Mục tiêu của tôi</button>
+<button class="tab" role="tab" data-t="photo" aria-selected="false">Tính calo &amp; Bữa ăn</button>
+<button class="tab" role="tab" data-t="week" aria-selected="false">Thực đơn &amp; Lịch 7 ngày</button>
+<button class="tab" role="tab" data-t="track" aria-selected="false">Theo dõi cân nặng</button>
+</div>
+
+<section id="goal">
+<div class="card">
+<h2>Thông tin cơ thể</h2>
+<div class="grid">
+<div><label for="age">Tuổi</label><input id="age" type="number" min="14" max="80"></div>
+<div><label for="h">Chiều cao (cm)</label><input id="h" type="number" min="120" max="210"></div>
+<div><label for="w">Cân nặng (kg)</label><input id="w" type="number" min="25" max="150" step="0.1"></div>
+<div><label for="act">Mức vận động</label><select id="act">
+<option value="1.2">Ít vận động</option><option value="1.375">Nhẹ (1–3 buổi/tuần)</option><option value="1.55">Vừa (3–5 buổi/tuần)</option><option value="1.725">Nhiều (6–7 buổi/tuần)</option></select></div>
+<div><label for="pace">Tốc độ tăng cân</label><select id="pace">
+<option value="300">Nhẹ nhàng (~0,25 kg/tuần)</option><option value="500">Nhanh hơn (~0,5 kg/tuần)</option></select></div>
+</div>
+</div>
+<div class="card" id="res"></div>
+<div class="card">
+<h2>Bạn đang thiếu chất gì?</h2>
+<p class="muted">Chọn các chất bạn cần bổ sung. AI sẽ ưu tiên đưa vào thực đơn hằng ngày.</p>
+<div class="chips" id="chips"></div>
+<div id="defs" style="margin-top:14px"></div>
+</div>
+<p class="note">Công cụ chỉ mang tính tham khảo, không thay thế tư vấn y tế. Nếu BMI dưới 18,5, sụt cân không rõ lý do, mất kinh hoặc mệt kéo dài, hãy đi khám để tìm nguyên nhân.</p>
+</section>
+
+<section id="photo" hidden>
+<div class="card">
+<h2>1. Chụp hoặc tải ảnh bữa ăn</h2>
+<p class="muted">Chụp từ trên xuống, thấy rõ cả đĩa và thìa/đũa/bát để ước tính chuẩn hơn.</p>
+<input id="file" type="file" accept="image/*" style="margin-bottom:10px">
+<img id="prev" class="preview" alt="Ảnh món ăn" hidden>
+<label for="hint">Ghi chú thêm (không bắt buộc)</label>
+<input id="hint" type="text" placeholder="Ví dụ: 1 bát cơm đầy, thịt kho 3 miếng" style="margin-bottom:12px">
+<div class="row"><button class="btn" id="go">Phân tích bữa ăn</button><span id="st" class="muted"></span></div>
+</div>
+
+<div class="card" id="ares" hidden></div>
+
+<div class="card">
+<h2>2. Đồ ăn đang có sẵn ở nhà</h2>
+<p class="muted">Chọn hoặc ghi các món đang có trong tủ lạnh để AI ưu tiên sắp vào bữa tiếp theo (tự động lưu).</p>
+<div class="chips" id="fchips" style="margin-bottom:10px"></div>
+<input id="fridge" type="text" placeholder="Ghi thêm đồ có sẵn khác: cà chua, bơ, bánh mì, mướp..." style="margin-bottom:12px">
+<label class="row" style="margin-bottom:12px;cursor:pointer;color:var(--ink)">
+<input id="autoupdate" type="checkbox" checked> <span>Tự động nhờ AI cập nhật thực đơn mỗi khi thêm bữa ăn</span>
+</label>
+<div class="row"><button class="btn" id="refreshMenu" type="button">AI cập nhật thực đơn ngay</button><span id="mst" class="muted"></span></div>
+</div>
+
+<div class="card">
+<h2>3. Nhật ký hôm nay</h2>
+<div id="log"></div>
+</div>
+
+<div class="card" id="todayPlanBox"></div>
+</section>
+
+<section id="week" hidden>
+<div class="card">
+<div class="row" style="justify-content:space-between;align-items:center;margin-bottom:8px">
+<h2 style="margin:0">Thực đơn món Việt (AI cập nhật trực tiếp)</h2>
+<button class="btn" id="refreshMenu2" type="button" style="padding:9px 16px;font-size:14px">AI cập nhật lại</button>
+</div>
+<p id="mst2" class="muted" style="margin:0 0 8px"></p>
+<div id="aiWeekBox"></div>
+</div>
+<div class="card"><h2>Kế hoạch vận động tuần</h2><p class="muted" id="wsum"></p></div>
+<div id="wdays"></div>
+</section>
+
+<section id="track" hidden>
+<div class="card"><h2>Cập nhật cân nặng</h2>
+<div class="grid"><div><label for="td">Ngày</label><input id="td" type="date"></div><div><label for="tw">Cân nặng (kg)</label><input id="tw" type="number" step="0.1" min="20" max="200" placeholder="Ví dụ: 46.5"></div></div>
+<div class="row" style="margin-top:12px"><button class="btn" id="tadd">Lưu cân nặng</button><span id="tmsg" class="muted"></span></div>
+<p class="muted" style="margin:10px 0 0">Nên cân mỗi sáng, sau khi đi vệ sinh và trước khi ăn, cùng một cân. Nhập lại cùng ngày sẽ ghi đè số cũ.</p></div>
+<div class="card"><h2>Mục tiêu</h2>
+<div class="grid"><div><label for="tg">Cân nặng mục tiêu (kg)</label><input id="tg" type="number" step="0.1" min="30" max="150"></div><div><label for="tdl">Muốn đạt trước ngày (không bắt buộc)</label><input id="tdl" type="date"></div></div></div>
+<div class="card" id="tstat"></div>
+<div class="card" id="tchart" hidden></div>
+<div class="card"><h2>Lịch sử cân nặng</h2><div id="tlist"></div></div>
+</section>
+</div>
+
+<script>
+const API_URL='/.netlify/functions/gemini';
+const $=s=>document.querySelector(s);
+const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const store={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+const fmt=n=>Math.round(n).toLocaleString('vi-VN');
+function ld(x){x=x||new Date();return x.getFullYear()+'-'+String(x.getMonth()+1).padStart(2,'0')+'-'+String(x.getDate()).padStart(2,'0')}
+
+let P=Object.assign({age:25,h:160,w:45,act:'1.375',pace:'300',def:[]},store.get('profile',{}));
+let F=Object.assign({chips:[],text:'',auto:true},store.get('fridge_state',{}));
+
+const DEF=[
+{id:'fe',n:'Sắt',need:'18 mg/ngày (≥51 tuổi: 8 mg)',food:'Thịt bò 100–120 g, tiết, gan 50 g (1–2 lần/tuần), đậu lăng, đậu hũ, rau muống',tip:'Ăn cùng cam, ổi hoặc ớt chuông (vitamin C). Tránh trà, cà phê trong 1 giờ trước và sau bữa ăn. Không uống cùng canxi.'},
+{id:'ca',n:'Canxi',need:'1.000 mg/ngày',food:'Sữa chua hoặc sữa 2 ly (400 ml), cá nhỏ ăn cả xương, đậu hũ, cải xanh, mè đen',tip:'Chia 2–3 lần, mỗi lần dưới 500 mg. Kết hợp vitamin D. Cách bữa có sắt ít nhất 2 giờ.'},
+{id:'d',n:'Vitamin D',need:'600–800 IU/ngày',food:'Cá hồi, cá thu, trứng (cả lòng đỏ), nấm phơi nắng',tip:'Phơi nắng 10–15 phút trước 9 giờ sáng, lộ tay chân. Ăn cùng bữa có chất béo để hấp thụ tốt hơn.'},
+{id:'b12',n:'Vitamin B12',need:'2,4 mcg/ngày',food:'Trứng 1–2 quả, thịt, cá, sữa, nghêu sò',tip:'Rất cần nếu ăn chay. Hấp thụ tốt khi dạ dày khỏe, nên ăn chậm và không bỏ bữa sáng.'},
+{id:'zn',n:'Kẽm',need:'8 mg/ngày',food:'Hàu, thịt bò, hạt bí, đậu xanh, hạt điều',tip:'Tách khỏi viên sắt liều cao. Ngâm đậu, hạt qua đêm để giảm phytate cản hấp thụ.'},
+{id:'mg',n:'Magie',need:'310–320 mg/ngày',food:'Hạnh nhân, hạt điều, chuối, rau bina, yến mạch, sô-cô-la đen',tip:'Ăn buổi tối giúp ngủ sâu hơn. Ngủ đủ giấc giúp cơ thể giữ magie tốt hơn.'},
+{id:'pr',n:'Đạm (protein)',need:'1,6 g/kg cân nặng/ngày',food:'Trứng, ức gà, cá, đậu hũ, sữa chua Hy Lạp, đậu',tip:'Chia đều 20–30 g mỗi bữa. Uống thêm 1 ly sữa hoặc ăn 1 quả trứng trong vòng 1–2 giờ sau tập.'},
+{id:'fo',n:'Folate (B9)',need:'400 mcg/ngày',food:'Rau lá xanh đậm, măng tây, đậu, bông cải xanh, cam',tip:'Nấu nhanh, tránh luộc lâu vì folate tan trong nước.'},
+{id:'o3',n:'Omega-3',need:'~250–500 mg EPA+DHA/ngày',food:'Cá hồi, cá thu, cá mòi 2 lần/tuần, hạt chia, óc chó',tip:'Chất béo tốt giúp tăng calo gọn: thêm 1 thìa dầu ô-liu hoặc 1 nắm hạt vào bữa ăn.'}
+];
+const FRIDGE=['Trứng gà','Thịt heo/băm','Thịt bò','Thịt gà','Cá/tôm','Đậu hũ','Rau xanh','Cơm/bún/mì','Sữa tươi/sữa chua','Chuối/cam','Hạt điều/lạc'];
+
+function calc(p){const w=+p.w,h=+p.h,a=+p.age;const bmr=10*w+6.25*h-5*a-161;const tdee=bmr*(+p.act);const target=tdee+(+p.pace);
+const protein=1.6*w,fat=target*.28/9,carb=(target-protein*4-fat*9)/4;return{bmr,tdee,target,protein,fat,carb,water:w*.035,bmi:w/Math.pow(h/100,2)}}
+function bmiText(b){return b<18.5?'Dưới mức bình thường (thiếu cân)':b<23?'Bình thường (chuẩn châu Á)':b<25?'Thừa cân nhẹ':'Thừa cân'}
+
+function renderGoal(){const t=calc(P);
+const meals=[['Sáng',.25],['Phụ sáng',.1],['Trưa',.3],['Phụ chiều',.1],['Tối',.25]];
+$('#res').innerHTML=`<h2>Lượng calo mỗi ngày để lên cân</h2>
+<div class="big">${fmt(t.target)} <small>kcal/ngày</small></div>
+<p class="muted">Cơ thể đốt khoảng ${fmt(t.tdee)} kcal/ngày, cộng thêm ${P.pace} kcal để tăng cân. BMI hiện tại ${t.bmi.toFixed(1)}: ${bmiText(t.bmi)}.</p>
+<div class="grid" style="margin:12px 0">
+<div><h3>${fmt(t.protein)} g</h3><span class="muted">Đạm</span></div>
+<div><h3>${fmt(t.carb)} g</h3><span class="muted">Tinh bột</span></div>
+<div><h3>${fmt(t.fat)} g</h3><span class="muted">Chất béo</span></div>
+<div><h3>${t.water.toFixed(1)} lít</h3><span class="muted">Nước uống</span></div></div>
+<div class="scroll"><table><tr><th>Bữa</th><th class="n">kcal</th><th class="n">Đạm</th></tr>${meals.map(m=>`<tr><td>${m[0]}</td><td class="n">${fmt(t.target*m[1])}</td><td class="n">${fmt(t.protein*m[1])} g</td></tr>`).join('')}</table></div>`;
+$('#defs').innerHTML=P.def.length?P.def.map(id=>{const d=DEF.find(x=>x.id===id);return`<div class="day s"><h3>${d.n}</h3><p class="muted" style="margin:0">Nhu cầu: ${d.need}</p><p style="margin:4px 0"><b>Ăn gì:</b> ${d.food}</p><p style="margin:0"><b>Hấp thụ tốt hơn:</b> ${d.tip}</p></div>`}).join(''):'<p class="muted">Chưa chọn chất nào. Lịch tuần sẽ dùng nguyên tắc chung.</p>';
+renderLog();renderWeek()}
+
+function initGoal(){['age','h','w','act','pace'].forEach(k=>{const e=$('#'+k);e.value=P[k];e.addEventListener('input',()=>{P[k]=e.value;store.set('profile',P);if(+P.w>0&&+P.h>0&&+P.age>0)renderGoal()})});
+$('#chips').innerHTML=DEF.map(d=>`<button class="chip" data-id="${d.id}" aria-pressed="${P.def.includes(d.id)}">${d.n}</button>`).join('');
+$('#chips').addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;const id=b.dataset.id;P.def=P.def.includes(id)?P.def.filter(x=>x!==id):P.def.concat(id);b.setAttribute('aria-pressed',P.def.includes(id));store.set('profile',P);renderGoal()})}
+
+function renderWeek(){const t=calc(P);const S=[['Thứ Hai','Tập sức mạnh thân dưới 40 phút: squat, hip thrust, deadlift nhẹ',1],['Thứ Ba','Đi bộ nhanh 30 phút, giãn cơ 10 phút',0],['Thứ Tư','Tập sức mạnh thân trên 40 phút: kéo xô, đẩy tạ, chống đẩy',1],['Thứ Năm','Yoga hoặc đi bộ thư giãn 20–30 phút',0],['Thứ Sáu','Tập toàn thân 40 phút',1],['Thứ Bảy','Phơi nắng sáng 15 phút, đạp xe hoặc bơi nhẹ, gặp bạn bè',0],['Chủ Nhật','Nghỉ hoàn toàn, đi chợ và nấu sẵn đồ ăn cho cả tuần',0]];
+const gen=[{n:'Đạm đều các bữa',tip:'Mỗi bữa có 20–30 g đạm để cơ thể xây cơ thay vì chỉ tích mỡ.'}];
+const foc=P.def.length?P.def.map(id=>DEF.find(x=>x.id===id)):gen;
+$('#wsum').textContent=`Ngày tập sức mạnh ăn ${fmt(t.target+100)} kcal, ngày nghỉ ăn ${fmt(t.target-75)} kcal. Trung bình cả tuần vẫn là ${fmt(t.target)} kcal. Tập tạ giúp tăng cơ thay vì tích mỡ. Ngủ 7–9 giờ mỗi đêm.`;
+$('#wdays').innerHTML=S.map((d,i)=>{const f=foc[i%foc.length];const post=d[2]?'Trong 60–90 phút sau tập: ăn đạm 25–30 g kèm tinh bột (cơm + trứng/cá, hoặc sữa + chuối).':'Giữ đủ 5 bữa, không nhịn bữa nào. Uống nước đều trong ngày.';
+return`<div class="card day ${d[2]?'s':''}"><h3>${d[0]} <span class="k">${fmt(t.target+(d[2]?100:-75))} kcal</span></h3>
+<p><span class="tag">${d[2]?'Ngày tập sức mạnh':'Ngày nhẹ/nghỉ'}</span></p><p><b>Hoạt động:</b> ${d[1]}</p><p><b>Dinh dưỡng:</b> ${post}</p>
+<p><b>Trọng tâm hấp thụ${f.food?': '+f.n:''}:</b> ${f.food?f.food.split(',').slice(0,3).join(',')+'. '+f.tip:f.tip}</p></div>`}).join('')}
+
+async function callGemini(parts,maxTok=2500){
+  const ac=new AbortController();
+  const to=setTimeout(()=>ac.abort(),35000);
+  try{
+    const resp=await fetch(API_URL,{
+      method:'POST',signal:ac.signal,
+      headers:{'content-type':'application/json'},
+      body:JSON.stringify({parts,maxTok})
+    });
+    if(!resp.ok){
+      let errTxt='';try{const ej=await resp.json();errTxt=(ej.error&&ej.error.message)||'';}catch(_){}
+      if(resp.status===401||resp.status===403)throw{code:'badkey',msg:errTxt};
+      if(resp.status===429)throw{code:'rate_limited',msg:errTxt};
+      throw{code:'http',status:resp.status,msg:errTxt};
+    }
+    const data=await resp.json();
+    const cand=(data.candidates||[])[0]||{};
+    const rparts=(cand.content||{}).parts||[];
+    const txt=rparts.filter(p=>!p.thought).map(p=>p.text||'').join('');
+    const mm=txt.match(/\{[\s\S]*\}/);
+    if(!mm)throw{code:'bad',msg:'AI chưa trả về đúng định dạng'+(cand.finishReason?' ('+cand.finishReason+')':'')+'. Hãy thử lại.'};
+    return JSON.parse(mm[0]);
+  }finally{clearTimeout(to)}
+}
+
+function errText(e){
+  if(e&&e.name==='AbortError')e={code:'timeout'};
+  const m={
+    badkey:'Khóa GEMINI_API_KEY trên Netlify chưa đúng hoặc chưa được bật.',
+    rate_limited:'Đang vượt giới hạn lượt dùng miễn phí, hãy đợi khoảng 1 phút rồi thử lại.',
+    timeout:'Quá 35 giây chưa nhận được phản hồi. Hãy thử lại.',
+    http:(e.msg||('Lỗi kết nối hệ thống ('+(e.status||'')+')'))
+  };
+  return m[e&&e.code]||(e&&e.msg)||'Chưa xử lý được. Hãy thử lại.';
+}
+
+let blob=null,cur=null;
+const dkey='log:'+ld();
+$('#file').addEventListener('change',async e=>{const f=e.target.files[0];if(!f)return;
+try{const im=await createImageBitmap(f);const r=Math.min(1,768/Math.max(im.width,im.height));const c=document.createElement('canvas');c.width=Math.round(im.width*r);c.height=Math.round(im.height*r);c.getContext('2d').drawImage(im,0,0,c.width,c.height);
+blob=await new Promise(res=>c.toBlob(res,'image/jpeg',.75));$('#prev').src=URL.createObjectURL(blob);$('#prev').hidden=false;$('#st').textContent=''}catch(err){$('#st').textContent='Không đọc được ảnh này. Hãy thử ảnh JPG hoặc PNG.'}});
+
+$('#go').addEventListener('click',async()=>{
+if(!blob){$('#st').textContent='Hãy chọn một ảnh trước.';return}
+const btn=$('#go');btn.disabled=true;let sec=0;
+$('#st').textContent='Đang phân tích bữa ăn (0s)...';
+const tmr=setInterval(()=>{sec++;$('#st').textContent='Đang phân tích bữa ăn ('+sec+'s)...';},1000);
+try{
+  const hint=$('#hint').value.trim();
+  const prompt='Bạn là chuyên gia dinh dưỡng Việt Nam. Nhìn ảnh bữa ăn và ước tính từng món cùng khối lượng (gram) dựa vào đĩa, bát, thìa đũa trong ảnh. '+(hint?'Ghi chú: '+hint+'. ':'')+'Chỉ trả về JSON thuần túy: {"items":[{"name":"tên món tiếng Việt","grams":number,"kcal":number,"protein":number,"carb":number,"fat":number}],"micro":["vi chất nổi bật trong bữa"],"missing":["chất còn thiếu trong bữa này"],"note":"1-2 câu nhận xét ngắn","confidence":"cao|vừa|thấp"}. Nếu không có đồ ăn trả về {"items":[],"note":"Không thấy món ăn trong ảnh","micro":[],"missing":[],"confidence":"thấp"}.';
+  const b64=await new Promise((ok,no)=>{const r=new FileReader();r.onload=()=>ok(String(r.result).split(',')[1]);r.onerror=no;r.readAsDataURL(blob)});
+  cur=await callGemini([{inline_data:{mime_type:'image/jpeg',data:b64}},{text:prompt}],2048);
+  if(!cur||!Array.isArray(cur.items))throw{code:'bad'};
+  renderA();$('#st').textContent='Hoàn tất trong '+sec+'s';
+}catch(e){$('#st').textContent=errText(e)}
+finally{clearInterval(tmr);btn.disabled=false}});
+
+const sum=a=>({kcal:a.reduce((s,i)=>s+(+i.kcal||0),0),protein:a.reduce((s,i)=>s+(+i.protein||0),0),carb:a.reduce((s,i)=>s+(+i.carb||0),0),fat:a.reduce((s,i)=>s+(+i.fat||0),0)});
+
+function renderA(){
+  const s=sum(cur.items);const box=$('#ares');box.hidden=false;
+  if(!cur.items.length){box.innerHTML='<p>'+esc(cur.note||'Không thấy món ăn trong ảnh.')+'</p>';return}
+  box.innerHTML=`<h2>Kết quả: ${fmt(s.kcal)} kcal</h2><p class="muted">Độ tin cậy: ${esc(cur.confidence||'vừa')}. Sai số thực tế có thể ±20%.</p>
+  <div class="scroll"><table><tr><th>Món</th><th class="n">Gram</th><th class="n">kcal</th><th class="n">Đạm</th><th class="n">Tinh bột</th><th class="n">Béo</th></tr>
+  ${cur.items.map(i=>`<tr><td>${esc(i.name)}</td><td class="n">${fmt(i.grams||0)}</td><td class="n">${fmt(i.kcal||0)}</td><td class="n">${fmt(i.protein||0)}</td><td class="n">${fmt(i.carb||0)}</td><td class="n">${fmt(i.fat||0)}</td></tr>`).join('')}
+  <tr><th>Tổng</th><th></th><th class="n">${fmt(s.kcal)}</th><th class="n">${fmt(s.protein)}</th><th class="n">${fmt(s.carb)}</th><th class="n">${fmt(s.fat)}</th></tr></table></div>
+  <p style="margin-top:10px">${(cur.micro||[]).map(m=>'<span class="tag">'+esc(m)+'</span>').join('')}</p>
+  ${(cur.missing&&cur.missing.length)?`<p><b>Bữa này còn thiếu:</b> ${cur.missing.map(m=>esc(m)).join(', ')}</p>`:''}
+  <p>${esc(cur.note||'')}</p>
+  <button class="btn" id="add">Thêm vào nhật ký &amp; Cập nhật thực đơn</button>`;
+  $('#add').onclick=()=>{
+    const L=store.get(dkey,[]);
+    const now=new Date();
+    const tm=String(now.getHours()).padStart(2,'0')+':'+String(now.getMinutes()).padStart(2,'0');
+    L.push({time:tm,name:cur.items.map(i=>i.name).join(', '),kcal:s.kcal,protein:s.protein,carb:s.carb,fat:s.fat,micro:cur.micro||[],missing:cur.missing||[]});
+    store.set(dkey,L);
+    box.hidden=true;
+    renderLog();
+    if(F.auto)syncMenuWithAI('vừa thêm bữa ăn lúc '+tm);
+  };
+}
+
+function renderLog(){
+  const L=store.get(dkey,[]);const t=calc(P);const s=sum(L);
+  const pc=Math.min(100,s.kcal/t.target*100),pp=Math.min(100,s.protein/t.protein*100);
+  const left=t.target-s.kcal,leftP=t.protein-s.protein;
+  $('#log').innerHTML=`<p>Đã ăn <b>${fmt(s.kcal)}</b> / ${fmt(t.target)} kcal ${left>0?'(còn thiếu ~'+fmt(left)+' kcal)':'(đã đủ calo hôm nay)'}</p><div class="bar"><i style="width:${pc}%"></i></div>
+  <p>Đạm <b>${fmt(s.protein)}</b> / ${fmt(t.protein)} g ${leftP>0?'(còn thiếu ~'+fmt(leftP)+' g)':''} · Tinh bột: <b>${fmt(s.carb)}</b>/${fmt(t.carb)} g · Béo: <b>${fmt(s.fat)}</b>/${fmt(t.fat)} g</p><div class="bar p"><i style="width:${pp}%"></i></div>
+  ${L.length?'<div class="scroll"><table>'+L.map((x,i)=>`<tr><td>${x.time?`<span class="muted">${esc(x.time)}</span> `:''}${esc(x.name)}${x.missing&&x.missing.length?`<div class="muted">Thiếu: ${esc(x.missing.join(', '))}</div>`:''}</td><td class="n">${fmt(x.kcal)} kcal<br><span class="muted">${fmt(x.protein||0)}g đạm</span></td><td class="n"><button class="x" data-i="${i}" aria-label="Xóa">×</button></td></tr>`).join('')+'</table></div>':'<p class="muted">Chưa có bữa nào hôm nay. Chụp ảnh món ăn rồi bấm thêm vào đây.</p>'}`;
+  $('#log').querySelectorAll('.x').forEach(b=>b.onclick=()=>{
+    const L2=store.get(dkey,[]);L2.splice(+b.dataset.i,1);store.set(dkey,L2);renderLog();
+    if(F.auto)syncMenuWithAI('vừa chỉnh sửa nhật ký');
+  });
+}
+
+function initFridge(){
+  $('#fchips').innerHTML=FRIDGE.map(f=>`<button class="chip" type="button" data-f="${esc(f)}" aria-pressed="${F.chips.includes(f)}">${esc(f)}</button>`).join('');
+  $('#fridge').value=F.text||'';
+  $('#autoupdate').checked=F.auto!==false;
+  $('#fchips').addEventListener('click',e=>{
+    const b=e.target.closest('.chip');if(!b)return;
+    const f=b.dataset.f;
+    F.chips=F.chips.includes(f)?F.chips.filter(x=>x!==f):F.chips.concat(f);
+    b.setAttribute('aria-pressed',F.chips.includes(f));
+    store.set('fridge_state',F);
+  });
+  $('#fridge').addEventListener('input',()=>{F.text=$('#fridge').value;store.set('fridge_state',F)});
+  $('#autoupdate').addEventListener('change',()=>{F.auto=$('#autoupdate').checked;store.set('fridge_state',F)});
+  $('#refreshMenu').onclick=()=>syncMenuWithAI('cập nhật theo đồ có sẵn & nhật ký');
+  $('#refreshMenu2').onclick=()=>syncMenuWithAI('cập nhật lại thực đơn tuần');
+}
+
+let menuBusy=false;
+async function syncMenuWithAI(reason){
+  if(menuBusy)return;
+  menuBusy=true;
+  $('#refreshMenu').disabled=true;$('#refreshMenu2').disabled=true;
+  let sec=0;
+  const setSt=t=>{$('#mst').textContent=t;$('#mst2').textContent=t};
+  setSt('AI đang cập nhật thực đơn ('+reason+')... 0s');
+  const tmr=setInterval(()=>{sec++;setSt('AI đang cập nhật thực đơn theo bữa ăn ('+sec+'s)...');},1000);
+  try{
+    const t=calc(P),L=store.get(dkey,[]),s=sum(L);
+    const leftK=Math.max(0,Math.round(t.target-s.kcal)),leftP=Math.max(0,Math.round(t.protein-s.protein));
+    const leftC=Math.max(0,Math.round(t.carb-s.carb)),leftF=Math.max(0,Math.round(t.fat-s.fat));
+    const defNames=P.def.map(id=>(DEF.find(x=>x.id===id)||{}).n).filter(Boolean);
+    const avail=[...F.chips,F.text.trim()].filter(Boolean).join(', ');
+    const hour=new Date().getHours();
+    const eatenTxt=L.length?L.map((m,i)=>`Bữa ${i+1} (${m.time||'hôm nay'}): ${m.name} (${Math.round(m.kcal)} kcal, ${Math.round(m.protein||0)}g đạm${m.missing&&m.missing.length?', thiếu: '+m.missing.join(', '):''})`).join(' | '):'Chưa ăn bữa nào';
+    const days=['Chủ Nhật','Thứ Hai','Thứ Ba','Thứ Tư','Thứ Năm','Thứ Sáu','Thứ Bảy'];
+    const todayName=days[new Date().getDay()];
+
+    const prompt=`Bạn là chuyên gia dinh dưỡng Việt Nam. Hãy CẬP NHẬT TRỰC TIẾP thực đơn hôm nay (${todayName}, hiện tại ${hour} giờ) và 6 ngày tiếp theo bằng món ăn Việt Nam đơn giản, bình dân, dễ nấu để giúp người dùng tăng cân khỏe mạnh.
+Dữ liệu hiện tại:
+- Mục tiêu cả ngày: ${Math.round(t.target)} kcal, Đạm ${Math.round(t.protein)}g, Tinh bột ${Math.round(t.carb)}g, Chất béo ${Math.round(t.fat)}g.
+- Chất người dùng đang thiếu (ưu tiên bổ sung): ${defNames.length?defNames.join(', '):'Cân bằng đủ nhóm chất'}.
+- Đã ăn hôm nay: ${eatenTxt}.
+- Tổng đã nạp: ${Math.round(s.kcal)} kcal, ${Math.round(s.protein)}g đạm. Còn thiếu hôm nay: ${leftK} kcal, ${leftP}g đạm, ${leftC}g tinh bột, ${leftF}g béo.
+- Đồ ăn đang có sẵn ở nhà: ${avail||'Chưa khai báo (gợi ý món Việt phổ biến dễ mua)'}.
+
+Yêu cầu:
+1. Các bữa trong hôm nay đã ăn rồi thì ghi trạng thái "da_an" (ghi đúng món đã ăn), các bữa còn lại trong ngày ghi trạng thái "nen_an" và tự tính lại món Việt phù hợp nhất (ưu tiên nấu từ đồ có sẵn) để bù đúng lượng calo và chất còn thiếu.
+2. Thực đơn 6 ngày tới (next_days) phải đa dạng món Việt đơn giản và tự điều chỉnh để bù các chất thiếu.
+3. Liệt kê ngắn gọn nên nấu món gì ngay và mua thêm gì ít nhất.
+
+Chỉ trả về JSON thuần túy theo đúng mẫu:
+{
+  "missing_now": ["chất đang thiếu trong ngày cần bù ngay"],
+  "advice": "1-2 câu ngắn hướng dẫn cách ăn/kết hợp để hấp thụ tốt nhất cho bữa tiếp theo",
+  "today_meals": [
+    {"slot": "Sáng|Phụ sáng|Trưa|Phụ chiều|Tối", "status": "da_an|nen_an", "dish": "tên món + định lượng bát/gram", "kcal": number, "protein": number, "how": "nấu từ đồ có sẵn hoặc cần mua thêm gì"}
+  ],
+  "buy_list": ["món cần mua thêm ngắn gọn"],
+  "next_days": [
+    {"day": "Tên thứ", "sang": "món sáng", "trua": "món trưa", "phu": "bữa phụ", "toi": "món tối"}
+  ]
+}`;
+
+    const res=await callGemini([{text:prompt}],3072);
+    if(!res||!Array.isArray(res.today_meals))throw{code:'bad'};
+    res.date=ld();
+    res.updatedAt=new Date().toLocaleTimeString('vi-VN',{hour:'2-digit',minute:'2-digit'});
+    store.set('ai_plan',res);
+    renderAIPlan();
+    setSt('Đã cập nhật thực đơn lúc '+res.updatedAt+' ('+sec+'s)');
+  }catch(e){setSt(errText(e))}
+  finally{clearInterval(tmr);menuBusy=false;$('#refreshMenu').disabled=false;$('#refreshMenu2').disabled=false}
+}
+
+function renderAIPlan(){
+  const plan=store.get('ai_plan',null);
+  const todayBox=$('#todayPlanBox'),weekBox=$('#aiWeekBox');
+  if(!plan||plan.date!==ld()){
+    const emptyMsg=`<h2>4. Thực đơn hôm nay (AI cập nhật trực tiếp)</h2><p class="muted">Chưa có thực đơn AI cho hôm nay. Hãy chụp ảnh 1 bữa ăn hoặc bấm nút <b>"AI cập nhật thực đơn ngay"</b> ở trên để AI tự sắp món theo đồ có sẵn và lượng calo còn thiếu.</p>`;
+    todayBox.innerHTML=emptyMsg;
+    weekBox.innerHTML=`<p class="muted">Bấm nút <b>"AI cập nhật lại"</b> ở góc trên (hoặc thêm 1 bữa ăn ở tab <i>Tính calo &amp; Bữa ăn</i>) để AI tự lập và cập nhật liên tục thực đơn 7 ngày món Việt theo đúng cơ thể và đồ ăn bạn có.</p>`;
+    return;
+  }
+  const missHtml=(plan.missing_now&&plan.missing_now.length)?`<p><b>Đang thiếu cần bù:</b> ${plan.missing_now.map(m=>`<span class="tag done">${esc(m)}</span>`).join('')}</p>`:'';
+  const buyHtml=(plan.buy_list&&plan.buy_list.length)?`<p><b>Nên mua thêm:</b> ${plan.buy_list.map(x=>`<span class="tag">${esc(x)}</span>`).join('')}</p>`:'';
+  const advHtml=plan.advice?`<p class="note">${esc(plan.advice)}</p>`:'';
+  const todayRows=`<div class="scroll"><table><tr><th>Bữa</th><th>Món ăn (nấu / ăn gì)</th><th class="n">kcal / Đạm</th></tr>
+  ${plan.today_meals.map(m=>`<tr><td><b>${esc(m.slot)}</b><br><span class="tag ${m.status==='da_an'?'done':''}">${m.status==='da_an'?'Đã ăn':'Nên ăn'}</span></td><td><b>${esc(m.dish)}</b>${m.how?`<div class="muted">${esc(m.how)}</div>`:''}</td><td class="n">${fmt(m.kcal||0)} kcal<br><span class="muted">${fmt(m.protein||0)}g</span></td></tr>`).join('')}
+  </table></div>`;
+
+  todayBox.innerHTML=`<h2>4. Thực đơn hôm nay <small class="muted">(AI cập nhật lúc ${esc(plan.updatedAt||'')})</small></h2>${missHtml}${advHtml}${todayRows}${buyHtml}`;
+
+  const nextRows=(plan.next_days&&plan.next_days.length)?`<h3 style="margin:16px 0 8px">6 ngày tiếp theo (AI tự cân chỉnh theo tiến độ)</h3><div class="scroll"><table><tr><th>Ngày</th><th>Sáng</th><th>Trưa</th><th>Bữa phụ</th><th>Tối</th></tr>
+  ${plan.next_days.map(d=>`<tr><td><b>${esc(d.day)}</b></td><td>${esc(d.sang)}</td><td>${esc(d.trua)}</td><td>${esc(d.phu)}</td><td>${esc(d.toi)}</td></tr>`).join('')}
+  </table></div>`:'';
+
+  weekBox.innerHTML=`<p class="muted">Cập nhật gần nhất hôm nay lúc <b>${esc(plan.updatedAt||'')}</b></p>${missHtml}${advHtml}<h3 style="margin:12px 0 8px">Thực đơn hôm nay</h3>${todayRows}${buyHtml}${nextRows}`;
+}
+
+document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('.tab').forEach(x=>x.setAttribute('aria-selected',x===b));
+  ['goal','photo','week','track'].forEach(id=>$('#'+id).hidden=id!==b.dataset.t);
+  if(b.dataset.t==='track')renderTrack();
+  if(b.dataset.t==='week'||b.dataset.t==='photo')renderAIPlan();
+});
+
+const dd=(a,b)=>Math.round((Date.parse(b)-Date.parse(a))/864e5);
+const dfmt=d=>d.split('-').reverse().join('/');
+const nf=(v,d=1)=>v.toLocaleString('vi-VN',{minimumFractionDigits:d,maximumFractionDigits:d});
+const sg=(v,d=1)=>(v>0?'+':'')+nf(v,d);
+const addD=(d,n)=>new Date(Date.parse(d)+n*864e5).toISOString().slice(0,10);
+let WL=store.get('wlog',[]),GW=Object.assign({goal:'',dl:''},store.get('gw',{}));
+function slope(a){if(a.length<2)return null;const x0=Date.parse(a[0].d),xs=a.map(p=>(Date.parse(p.d)-x0)/864e5),ys=a.map(p=>p.w);const mx=xs.reduce((s,v)=>s+v,0)/a.length,my=ys.reduce((s,v)=>s+v,0)/a.length;let nu=0,de=0;xs.forEach((x,i)=>{nu+=(x-mx)*(ys[i]-my);de+=(x-mx)*(x-mx)});return de?nu/de:null}
+function initTrack(){$('#td').value=ld();$('#tg').value=GW.goal;$('#tdl').value=GW.dl;
+$('#tadd').onclick=()=>{const d=$('#td').value,w=parseFloat($('#tw').value);if(!d||!(w>20&&w<200)){$('#tmsg').textContent='Hãy nhập ngày và cân nặng hợp lệ (20–200 kg).';return}
+WL=WL.filter(x=>x.d!==d).concat({d,w});WL.sort((a,b)=>a.d<b.d?-1:1);store.set('wlog',WL);$('#tw').value='';$('#tmsg').textContent='Đã lưu cân nặng '+nf(w)+' kg ngày '+dfmt(d)+'.';renderTrack()};
+$('#tg').addEventListener('input',()=>{GW.goal=$('#tg').value;store.set('gw',GW);renderTrack()});
+$('#tdl').addEventListener('input',()=>{GW.dl=$('#tdl').value;store.set('gw',GW);renderTrack()});
+renderTrack()}
+function renderTrack(){const n=WL.length,st=$('#tstat'),ch=$('#tchart');
+if(!n){st.innerHTML='<h2>Tốc độ lên cân</h2><p class="muted">Nhập cân nặng đầu tiên ở trên để bắt đầu theo dõi.</p>';ch.hidden=true;$('#tlist').innerHTML='<p class="muted">Chưa có dữ liệu.</p>';return}
+const f=WL[0],l=WL[n-1],days=dd(f.d,l.d),plan=(+P.pace)/7700,goal=parseFloat(GW.goal);
+const simple=days>0?(l.w-f.w)/days:null;const rec=WL.filter(p=>dd(p.d,l.d)<=14);const rate=n>=3?slope(rec.length>=3?rec:WL):simple;
+let h=`<h2>Tốc độ lên cân</h2><div class="grid" style="margin-bottom:12px">
+<div><div class="big">${nf(l.w)}<small> kg</small></div><span class="muted">Hiện tại (${dfmt(l.d)})</span></div>
+<div><h3>${sg(l.w-f.w)} kg</h3><span class="muted">Sau ${days} ngày kể từ ${dfmt(f.d)}</span></div>
+<div><h3>${simple!=null?sg(simple*1000,0)+' g/ngày':'—'}</h3><span class="muted">Trung bình mỗi ngày</span></div>
+<div><h3>${simple!=null?sg(simple*7)+' kg/tuần':'—'}</h3><span class="muted">Trung bình mỗi tuần</span></div></div>`;
+if(rate!=null){const r=rate/plan;h+=`<p>Xu hướng${n>=3?' (14 ngày gần nhất)':''}: <b>${sg(rate*1000,0)} g/ngày</b>. Kế hoạch ăn dư ${P.pace} kcal mỗi ngày ứng với khoảng ${nf(plan*1000,0)} g/ngày.</p>`;
+h+=`<p class="note">${rate<=0?'Cân nặng chưa tăng. Kiểm tra lại tổng calo thực ăn mỗi ngày, thêm 1 bữa phụ khoảng 300 kcal và ngủ đủ 7–9 giờ.':r<.5?'Đang tăng chậm hơn kế hoạch. Thử thêm 1 bữa phụ khoảng 300 kcal (sữa, trứng, hạt, chuối) và ghi lại nhật ký ăn để kiểm tra đủ calo.':r<=1.5?'Đang đúng tiến độ so với kế hoạch. Giữ nhịp ăn và tập hiện tại.':'Đang tăng nhanh hơn dự kiến. Phần lớn tuần đầu có thể là nước và glycogen. Nếu vượt 0,5 kg/tuần kéo dài, hãy giảm bớt khẩu phần để tránh tăng mỡ.'}</p>`}
+if(n<3)h+='<p class="muted">Cần ít nhất 3 lần cân để xu hướng đáng tin cậy. Cân nặng có thể dao động 0,5–1 kg mỗi ngày do nước và bữa ăn.</p>';
+if(goal>0){const rem=goal-l.w,start=goal-f.w;h+=`<h2 style="margin-top:18px">Tiến độ tới ${nf(goal)} kg</h2>`;
+if(rem<=0)h+='<p><b>Đã đạt mục tiêu.</b> Hãy duy trì thêm vài tuần rồi đặt mục tiêu mới hoặc chuyển sang ăn cân bằng calo.</p>';
+else{const pct=start>0?Math.max(0,Math.min(100,(l.w-f.w)/start*100)):0;
+h+=`<div class="bar"><i style="width:${pct}%"></i></div><p>Còn thiếu <b>${nf(rem)} kg</b> (đã đạt ${nf(pct,0)}%).</p>`;
+const dp=rem/plan;h+=`<p>Theo kế hoạch ăn dư ${P.pace} kcal: khoảng <b>${fmt(dp)} ngày</b> (~${nf(dp/7,0)} tuần), dự kiến ngày ${dfmt(addD(l.d,Math.ceil(dp)))}.</p>`;
+if(rate!=null&&rate>0.001){const dc=rem/rate;h+=`<p>Theo tốc độ hiện tại: khoảng <b>${fmt(dc)} ngày</b> (~${nf(dc/7,0)} tuần), dự kiến ngày ${dfmt(addD(l.d,Math.ceil(dc)))}.</p>`}else h+='<p>Với tốc độ hiện tại chưa tính được ngày đạt mục tiêu.</p>';
+if(GW.dl){const dl=dd(l.d,GW.dl);if(dl>0){const rq=rem/dl;h+=`<p>Để kịp ngày ${dfmt(GW.dl)}, cần tăng trung bình <b>${nf(rq*1000,0)} g/ngày</b> (${nf(rq*7)} kg/tuần), tức ăn dư khoảng ${fmt(rq*7700)} kcal mỗi ngày.${rq*7>0.5?' Mức này nhanh hơn 0,5 kg/tuần, khó giữ lâu và dễ tăng mỡ, nên lùi mốc thời gian.':''}</p>`}else h+='<p class="muted">Ngày mục tiêu đã qua, hãy chọn một ngày sau hôm nay.</p>'}}
+const hm=(+P.h)/100,gb=goal/(hm*hm);h+=`<p class="muted">BMI khi đạt mục tiêu: ${nf(gb)}. ${gb<18.5?'Vẫn thấp hơn mức bình thường (18,5–22,9), nên cân nhắc mục tiêu cao hơn.':gb>=23?'Cao hơn mức bình thường (18,5–22,9), nên cân nhắc mục tiêu thấp hơn hoặc hỏi bác sĩ.':'Nằm trong mức bình thường.'}</p>`}
+else h+='<p class="muted">Nhập cân nặng mục tiêu ở trên để tính thời gian đạt được.</p>';
+st.innerHTML=h;
+const W=600,H=220,pl=40,pr=12,pt=12,pb=26,ws=WL.map(x=>x.w).concat(goal>0?[goal]:[]),mn=Math.min(...ws)-1,mx=Math.max(...ws)+1,x0=Date.parse(f.d),x1=Math.max(Date.parse(l.d),x0+864e5*2);
+const X=t=>pl+(t-x0)/(x1-x0)*(W-pl-pr),Y=v=>pt+(mx-v)/(mx-mn)*(H-pt-pb);
+const path=WL.map((p,i)=>(i?'L':'M')+X(Date.parse(p.d)).toFixed(1)+' '+Y(p.w).toFixed(1)).join('');
+ch.hidden=false;ch.innerHTML=`<h2>Biểu đồ cân nặng</h2><div class="scroll"><svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Biểu đồ cân nặng theo ngày"><line class="ax" x1="${pl}" x2="${W-pr}" y1="${H-pb}" y2="${H-pb}"/><line class="ax" x1="${pl}" x2="${pl}" y1="${pt}" y2="${H-pb}"/>
+<text x="${pl-6}" y="${pt+8}" text-anchor="end">${nf(mx,0)}</text><text x="${pl-6}" y="${H-pb}" text-anchor="end">${nf(mn,0)}</text>
+<text x="${pl}" y="${H-6}">${dfmt(f.d)}</text><text x="${W-pr}" y="${H-6}" text-anchor="end">${dfmt(l.d)}</text>
+${goal>0?`<line class="gl" x1="${pl}" x2="${W-pr}" y1="${Y(goal)}" y2="${Y(goal)}"/><text x="${W-pr}" y="${Y(goal)-5}" text-anchor="end">Mục tiêu ${nf(goal)} kg</text>`:''}
+<path class="ln" d="${path}"/>${WL.map(p=>`<circle class="pt" cx="${X(Date.parse(p.d)).toFixed(1)}" cy="${Y(p.w).toFixed(1)}" r="3.5"/>`).join('')}</svg></div>`;
+const rows=WL.map((p,i)=>({d:p.d,w:p.w,df:i?p.w-WL[i-1].w:null,i})).reverse();
+$('#tlist').innerHTML='<div class="scroll"><table><tr><th>Ngày</th><th class="n">kg</th><th class="n">So với lần trước</th><th></th></tr>'+rows.map(r=>`<tr><td>${dfmt(r.d)}</td><td class="n">${nf(r.w)}</td><td class="n">${r.df==null?'—':sg(r.df)+' kg'}</td><td class="n"><button class="x" data-i="${r.i}" aria-label="Xóa">×</button></td></tr>`).join('')+'</table></div>';
+$('#tlist').querySelectorAll('.x').forEach(b=>b.onclick=()=>{WL.splice(+b.dataset.i,1);store.set('wlog',WL);renderTrack()})}
+
+initGoal();renderGoal();initTrack();initFridge();renderAIPlan();
+</script>
+</body>
+</html>
